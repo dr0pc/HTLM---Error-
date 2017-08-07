@@ -1,5 +1,5 @@
 /*
-Autor:	Luis Carreto
+Autor:	Luis Carreto y Luis Fajardo
 fecha:	22/7/2017
 Descripcion:	Programa para leer archivos de texto caractr por caracter
 Version:	1.0   Compilado en (gcc version 5.4.0 20160609 (Debian 5.4.0-6))
