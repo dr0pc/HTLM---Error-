@@ -1,8 +1,8 @@
 /*
 Autor:	Luis Carreto & Luis Fajardo
 fecha:	22/7/2017
-Descripcion:	Programa para leer archivos de texto caractr por caracter
-Version:	1.1   Compilado en (g++ version 5.4.0 20160609 (Debian 5.4.0-6))
+Descripcion:	Programa para verificar la sintaxis simple de un documento HTML
+Version:	Beta 0.4   Compilado en (g++ version 5.4.0 20160609 (Debian 5.4.0-6))
 */
 
 #include<iostream>
@@ -55,7 +55,7 @@ cout<<""<<endl;
 
 /******************************EN ESTE PUNTO SE OBTIENE EL VALOR HACIA EL CARACTER************************/
 
-		fichero.get(letra);
+
 		while (!fichero.eof()){
 //			cout << letra;
 
@@ -152,6 +152,109 @@ cout<<""<<endl;
 
 				}
 			}
+
+		break;
+
+
+
+		case '/':
+
+
+		fichero.get(letra);
+
+		switch(letra)
+		{
+		case 'h':
+			fichero.get(letra);
+			switch(letra)
+			{
+
+				case 'e':
+					fichero.get(letra);
+					if (letra =='a')
+					{
+
+						fichero.get(letra);
+						if (letra == 'd')
+						{
+							fichero.get(letra);
+							if(letra == '>')
+							head_end=false;
+							cout<<"heee finaliza  el head"<<endl;
+						}
+					}
+					break;
+
+				case 't':
+
+
+                                        fichero.get(letra);
+					if(letra =='m')
+					{
+						fichero.get(letra);
+						if(letra =='l')
+						{
+                                                       fichero.get(letra);
+                                                       if(letra == '>')
+                                                       cout<<"heee finaliza  el html"<<endl;
+							html_e=false;
+						}
+					}
+
+					break;
+
+			}
+		break;
+
+
+
+		case 'b':
+			fichero.get(letra);
+			if (letra =='o')
+			{
+				fichero.get(letra);
+				if(letra =='d')
+				{
+					fichero.get(letra);
+					if(letra =='y')
+					{
+						fichero.get(letra);
+	                                        if(letra =='>')
+						cout<<"hee se finaliz el body"<<endl;
+						body_e=false;
+					}
+				}
+			}
+		break;
+
+
+		case 't':
+                        fichero.get(letra);
+                        if(letra =='i')
+			{
+	                        fichero.get(letra);
+	                        if(letra =='t')
+	                        {
+					fichero.get(letra);
+                                        if(letra =='l')
+					{
+		                                fichero.get(letra);
+		                                if(letra =='e')
+        	                                {
+                	                                fichero.get(letra);
+                        	                        if(letra =='>')
+                                	               { cout<<"hee se finaliza el title"<<endl;
+                                        	        title_e=false;}
+  	                                     	 }
+					}
+
+				}
+			}
+
+		break;
+
+	}
+
 
 		break;
 /*
