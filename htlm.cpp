@@ -1,8 +1,8 @@
 /*
-Autor:	Luis Carreto y Luis Fajardo
+Autor:	Luis Carreto & Luis Fajardo
 fecha:	22/7/2017
 Descripcion:	Programa para leer archivos de texto caractr por caracter
-Version:	1.0   Compilado en (gcc version 5.4.0 20160609 (Debian 5.4.0-6))
+Version:	1.1   Compilado en (g++ version 5.4.0 20160609 (Debian 5.4.0-6))
 */
 
 #include<iostream>
@@ -10,6 +10,7 @@ Version:	1.0   Compilado en (gcc version 5.4.0 20160609 (Debian 5.4.0-6))
 
 using namespace std;
 int n=0;
+bool head_start =true, head_end =true, html_s =true, html_e =true, my_h =true, body_s =true, title_s=true, body_e=true, title_e=true;
 
 int main()
 {
@@ -27,7 +28,7 @@ cout<<""<<endl;
 	string nfichero;
 	char letra;
 
-	cout<<"Ingresa el nombre del documento [por ejemplo main]: ";
+	cout<<"Ingresa el nombre del documento [por ejemplo index]: ";
 	cin>>nfichero;
 
 		if (nfichero!="")
@@ -58,13 +59,112 @@ cout<<""<<endl;
 		while (!fichero.eof()){
 //			cout << letra;
 
+		fichero.get(letra);
+
 	if (letra == '<')
-	cout<<"se iniciala etiqueta"<<endl;
+	{	fichero.get(letra);
 
-	if (letra =='>')
-	cout<<"se finaliza la etiqueta"<<endl;
+		switch(letra)
+		{
+		case 'h':
+			fichero.get(letra);
+			switch(letra)
+			{
 
-	fichero.get(letra);
+				case 'e':
+					fichero.get(letra);
+					if (letra =='a')
+					{
+
+						fichero.get(letra);
+						if (letra == 'd')
+						{
+							fichero.get(letra);
+							if(letra == '>')
+							head_start=false;
+							cout<<"heee inicio  el head"<<endl;
+						}
+					}
+					break;
+
+				case 't':
+
+
+                                        fichero.get(letra);
+					if(letra =='m')
+					{
+						fichero.get(letra);
+						if(letra =='l')
+						{
+                                                       fichero.get(letra);
+                                                       if(letra == '>')
+                                                       cout<<"heee inicia  el html"<<endl;
+							html_s=false;
+						}
+					}
+
+					break;
+
+			}
+		break;
+
+
+
+		case 'b':
+			fichero.get(letra);
+			if (letra =='o')
+			{
+				fichero.get(letra);
+				if(letra =='d')
+				{
+					fichero.get(letra);
+					if(letra =='y')
+					{
+						fichero.get(letra);
+	                                        if(letra =='>')
+						cout<<"hee se inicio el body"<<endl;
+						body_s=false;
+					}
+				}
+			}
+		break;
+
+
+		case 't':
+                        fichero.get(letra);
+                        if(letra =='i')
+			{
+	                        fichero.get(letra);
+	                        if(letra =='t')
+	                        {
+					fichero.get(letra);
+                                        if(letra =='l')
+					{
+		                                fichero.get(letra);
+		                                if(letra =='e')
+        	                                {
+                	                                fichero.get(letra);
+                        	                        if(letra =='>')
+                                	               { cout<<"hee se inicio el title"<<endl;
+                                        	        title_s=false;}
+  	                                     	 }
+					}
+
+				}
+			}
+
+		break;
+/*
+		case 'H':
+			my_h=false;
+			cout<<"verifica que el head o el html no esten escritos en MAYUSCULAS"<<endl;
+		break;*/
+
+		}
+
+	}
+
+
 /*********************************************************************************************************/
 	}
 
