@@ -1,5 +1,5 @@
 /*
-Autor:	Luis Carreto & Luis Fajardo
+Autor:	Luis Carreto 
 fecha:	22/7/2017
 Descripcion:	Programa para verificar la sintaxis simple de un documento HTML
 Version:	Beta 0.4   Compilado en (g++ version 5.4.0 20160609 (Debian 5.4.0-6))
